@@ -4,20 +4,12 @@
     "python.linting.flake8Enabled": true,
     "python.linting.mypyEnabled": true,
     "python.linting.mypyArgs": [
-        "--python-version 3.10",
-        "--warn-return-any",
-        "--warn-unused-configs",
-        "--warn-unreachable",
-        "--strict-optional",
-        "--ignore-missing-imports",
-        "--disallow-untyped-defs",
-        "--check-untyped-defs",
+        "--config-file=pyproject.toml"
     ],
     "python.linting.lintOnSave": true,
     "python.formatting.provider": "black",
     "python.formatting.blackArgs": [
-        "--line-length",
-        "119"
+        "--config=pyproject.toml",
     ],
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
