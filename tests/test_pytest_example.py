@@ -1,5 +1,7 @@
 from pathlib import Path
 
+import pytest
+from typing import Annotated, Generator
 from pytest import MonkeyPatch
 
 from pytest_example.pytest_example import getssh
@@ -25,3 +27,14 @@ def test_getssh(monkeypatch: MonkeyPatch):
 
     actual = getssh()
     assert actual == Path("/abc/.ssh")
+
+
+@pytest.fixture
+def yield_fixture() -> Generator[int, None, None]:
+    print("before yield")
+    yield 0
+    print("after yield")
+
+
+def test_yield_fixture(yield_fixture: Annotated[Generator[int, None, None], pytest.fixture]) -> None:
+    assert yield_fixture == 0

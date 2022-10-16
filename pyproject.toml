@@ -45,5 +45,3 @@ ignore_missing_imports = true
 disallow_untyped_defs = true
 check_untyped_defs = true
 show_none_errors = true
-
-plugins = ["numpy.typing.mypy_plugin"]
