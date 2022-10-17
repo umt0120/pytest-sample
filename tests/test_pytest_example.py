@@ -1,13 +1,13 @@
 from pathlib import Path
+from typing import Annotated, Generator
 
 import pytest
-from typing import Annotated, Generator
 from pytest import MonkeyPatch
 
 from pytest_example.pytest_example import getssh
 
 
-def test_needfiles(tmp_path: Path):
+def test_needfiles(tmp_path: Path) -> None:
     """一時ディレクトリを作成する組み込みfixtureのtmp_pathの例
 
     Args:
@@ -19,8 +19,8 @@ def test_needfiles(tmp_path: Path):
     assert tmp_path.exists()
 
 
-def test_getssh(monkeypatch: MonkeyPatch):
-    def mockreturn():
+def test_getssh(monkeypatch: MonkeyPatch) -> None:
+    def mockreturn() -> Path:
         return Path("/abc")
 
     monkeypatch.setattr(Path, "home", mockreturn)
